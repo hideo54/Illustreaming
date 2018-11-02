@@ -19,10 +19,11 @@ This program automatically toots:
 1. Issue your access token for running this program.
 1. `cp config-sample.yaml config.yaml`
 1. Edit config.yaml appropriately
+1. `yarn`
 1. `pm2 start app.js --name Illustreaming`
 1. That's all! Follow the bot on your main account and have fun!
 
 ## Contact
 
-E-mail: contact@hideo54.com
-Mastodon: @hideo54@social.hideo54.com
+E-mail: contact@hideo54.com  
+Mastodon: [@hideo54@social.hideo54.com](https://social.hideo54.com/@hideo54)
