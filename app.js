@@ -9,13 +9,14 @@ const token = config.token;
 
 const headers = { 'Authorization': `Bearer ${token}` };
 
-const streamedTimelineUrl = `${host}/api/v1/streaming/user`;
-const es = new EventSouce(streamedTimelineUrl, { headers: headers });
+const timelineStreamUrl = `${host}/api/v1/streaming/user`;
+const es = new EventSouce(timelineStreamUrl, { headers: headers });
 es.addEventListener('update', e => {
     const data = JSON.parse(e.data);
-    const id = data.id;
-    const author = data.account.display_name;
-    if (data.media_attachments.length === -1) {
+    const status = data.reblog ? data.reblog : data;
+    const id = status.id;
+    const author = status.account.display_name;
+    if (status.media_attachments.length === -1) {
         if (config.blacklist.indexOf(author) < 0) {
             request.post({
                 url: `${host}/api/v1/statuses/${id}/reblog`,
