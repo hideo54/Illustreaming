@@ -15,9 +15,9 @@ es.addEventListener('update', e => {
     const data = JSON.parse(e.data);
     const status = data.reblog ? data.reblog : data;
     const id = status.id;
-    const author = status.account.display_name;
-    if (status.media_attachments.length === -1) {
-        if (config.blacklist.indexOf(author) < 0) {
+    const author = status.account.acct;
+    if (status.media_attachments.length) {
+        if (config.blacklist.indexOf(author) === -1) {
             request.post({
                 url: `${host}/api/v1/statuses/${id}/reblog`,
                 headers: headers
