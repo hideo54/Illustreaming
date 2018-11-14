@@ -1,6 +1,6 @@
 # Illustreaming
 
-See your favorite illustraters' works on your timeline w/o following!
+See your favorite illustrators' works on your timeline w/o following!
 
 ## Features
 
