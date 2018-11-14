@@ -1,2 +1,5 @@
 host: https://example.com
 token: XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+blacklist:
+    - donald
+    - john@example.com

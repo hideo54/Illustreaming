@@ -14,10 +14,13 @@ const es = new EventSouce(streamedTimelineUrl, { headers: headers });
 es.addEventListener('update', e => {
     const data = JSON.parse(e.data);
     const id = data.id;
-    if (data.media_attachments.length > 0) {
-        request.post({
-            url: `${host}/api/v1/statuses/${id}/reblog`,
-            headers: headers
-        });
-    };
+    const author = data.account.display_name;
+    if (data.media_attachments.length === -1) {
+        if (config.blacklist.indexOf(author) < 0) {
+            request.post({
+                url: `${host}/api/v1/statuses/${id}/reblog`,
+                headers: headers
+            });
+        }
+    }
 });
