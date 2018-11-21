@@ -51,3 +51,14 @@ es.addEventListener('update', e => {
         });
     }
 });
+
+es.addEventListener('notification', e => {
+    const data = JSON.parse(e.data);
+    if (data.type === 'favourite') {
+        const idToFollow = data.status.content.replace(/^[^()]*\(([0-9]*)\)[^()]*$/, '$1');
+        request.post({
+            url: `${host}/api/v1/accounts/${idToFollow}/follow`,
+            headers: headers
+        });
+    }
+});
