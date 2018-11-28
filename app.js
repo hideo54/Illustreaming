@@ -60,5 +60,6 @@ es.addEventListener('notification', e => {
             url: `${host}/api/v1/accounts/${idToFollow}/follow`,
             headers: headers
         });
+        fetchFollowing();
     }
 });
