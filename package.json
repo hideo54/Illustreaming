@@ -9,6 +9,6 @@
     "dependencies": {
         "eventsource": "^1.0.7",
         "js-yaml": "^3.13.1",
-        "request": "^2.88.0"
+        "request": "^2.88.2"
     }
 }
